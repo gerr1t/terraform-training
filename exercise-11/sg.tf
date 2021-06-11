@@ -1,21 +1,13 @@
-# The security group for windows EC2 instances
-resource "aws_security_group" "windows" {
-  name        = "windows"
-  description = "Allow RDP access"
+# The security group for linux EC2 instances
+resource "aws_security_group" "linux" {
+  name        = "linux"
+  description = "Allow SSH access"
   vpc_id      = "vpc-05e10a7e52ac405bb"
 
-  # Allow port 3389 (RDP)
+  # Allow port 22 (SSH)
   ingress {
-    from_port   = 3389
-    to_port     = 3389
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  # Allow port 5985 (WinRM)
-  ingress {
-    from_port   = 5985
-    to_port     = 5985
+    from_port   = 22
+    to_port     = 22
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -34,6 +26,6 @@ resource "aws_security_group" "windows" {
   }
 }
 
-output "windows_security_group_id" {
-  value = "${aws_security_group.windows.id}"
+output "linux_security_group_id" {
+  value = aws_security_group.linux.id
 }
