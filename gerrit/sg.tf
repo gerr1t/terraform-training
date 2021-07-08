@@ -1,8 +1,8 @@
 # The security group for linux EC2 instances
 resource "aws_security_group" "linux" {
-  name        = "linux"
+  name        = "gerrit"
   description = "Allow SSH access"
-  vpc_id      = "vpc-05e10a7e52ac405bb"
+  vpc_id      = "vpc-0046048accbffd57e"
 
   # Allow port 22 (SSH)
   ingress {

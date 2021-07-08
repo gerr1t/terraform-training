@@ -6,7 +6,7 @@ resource "aws_instance" "linux" {
   vpc_security_group_ids = [aws_security_group.linux.id]
   subnet_id              = "subnet-0bbd7612bccf4f563"
 
-  tags {
+  tags = {
     Name = "Gerrit Tamboer"
   }
 }

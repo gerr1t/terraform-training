@@ -21,7 +21,7 @@ resource "aws_security_group" "linux" {
   }
 
   # The name tag with my name
-  tags {
+  tags = {
     Name = "Gerrit Tamboer"
   }
 }
